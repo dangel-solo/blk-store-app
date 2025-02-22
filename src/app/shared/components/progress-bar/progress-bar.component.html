@@ -1,0 +1,6 @@
+<div class="progress-container" [ngClass]="'progress-' + colorClass">
+  <span> {{ title }} </span>
+  <progressbar [ngClass]="'progress-bar-' + colorClass" [value]="percent">
+    <span class="progress-value"> {{ percent }}% </span>
+  </progressbar>
+</div>

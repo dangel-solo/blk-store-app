@@ -3,6 +3,7 @@ import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
 import { GetStoresRs, Store } from '../models/store.model';
 import { map, switchMap, tap } from 'rxjs/operators';
+import { GetGameRs } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,8 @@ export class StoreService {
     return this.http.get<Store>(`stores/${id}`).pipe(tap(console.log));
   }
 
-  getGames(id: number): Observable<Store> {
-    return this.http.get<Store>(`games/${id}`).pipe(tap(console.log));
+  getGames(id: number): Observable<GetGameRs> {
+    return this.http.get<GetGameRs>(`games/${id}`).pipe(tap(console.log));
   }
 
   getStoreDetailsComplete(id: number): Observable<Store> {
