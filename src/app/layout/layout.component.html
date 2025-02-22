@@ -1,6 +1,5 @@
-<app-navbar></app-navbar>
-<div class="wrapper">
-  <div class="page-header header-filter">
+<div class="page-header">
+  <section class="backgrounds">
     <div class="squares square1"></div>
     <div class="squares square2"></div>
     <div class="squares square3"></div>
@@ -8,10 +7,9 @@
     <div class="squares square5"></div>
     <div class="squares square6"></div>
     <div class="squares square7"></div>
-    <div class="container">
-      <div class="content-center brand">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
+  </section>
+  <app-navbar></app-navbar>
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
 </div>

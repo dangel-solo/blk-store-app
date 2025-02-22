@@ -1,0 +1,68 @@
+/* Reset básico para eliminar diferencias entre navegadores */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Asegura que el texto se renderice correctamente */
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Mejora la accesibilidad de los enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Elimina el estilo de lista por defecto */
+ul, ol {
+  list-style: none;
+}
+
+/* Imágenes y medios siempre dentro de su contenedor */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hace que los formularios sean más coherentes */
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Evita saltos de estilo en el scroll */
+:where(:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+:where(:focus:not(:focus-visible)) {
+  outline: none;
+}

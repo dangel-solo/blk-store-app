@@ -1,0 +1,20 @@
+<div class="card card-coin card-plain" (click)="onCardClick()">
+  <div class="card-header">
+    <img
+      alt="Raised circle image"
+      class="img-center img-fluid rounded-circle shadow-lg"
+      [src]="store.image_background"
+    />
+    <h4 class="title">{{ store.name }}</h4>
+    <a
+      [href]="getUrl(store.domain)"
+      target="_blank"
+      rel="external"
+      (click)="$event.stopPropagation()"
+      >{{ store.domain }}</a
+    >
+  </div>
+  <div class="card-body">
+    <p class="text-muted">Número total de juegos: {{ store.games_count }}</p>
+  </div>
+</div>

@@ -1,1 +1,5 @@
-<h1>Store List</h1>
+<div class="list-container">
+  <ng-container *ngFor="let store of storeList">
+    <app-card [store]="store"></app-card>
+  </ng-container>
+</div>
