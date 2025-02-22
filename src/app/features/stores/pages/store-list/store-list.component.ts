@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from 'src/app/core/models/store.model';
 import { StoreService } from 'src/app/core/services/store.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { StoreService } from 'src/app/core/services/store.service';
   styleUrls: ['./store-list.component.scss'],
 })
 export class StoreListComponent implements OnInit {
+  storeList: Store[] = [];
   constructor(public storeService: StoreService) {}
 
   ngOnInit(): void {
-    this.storeService.getStores().subscribe();
-    this.storeService.getStoreDetails(1).subscribe();
-    this.storeService.getGames(3328).subscribe();
+    this.storeService
+      .getStores()
+      .subscribe((response: Store[]) => (this.storeList = response));
   }
 }
