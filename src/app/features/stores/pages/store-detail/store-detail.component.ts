@@ -25,7 +25,11 @@ export class StoreDetailComponent implements OnInit {
 
   getStoreDettails(id: number) {
     this.storeService
-      .getStoreDetails(id)
+      .getStoreDetailsComplete(id)
       .subscribe((store: Store) => (this.store = store));
+  }
+
+  getGameDetails(id: number) {
+    this.storeService.getGames(id).subscribe();
   }
 }

@@ -1,2 +1,36 @@
-<h1>STORE DETAIL</h1>
-{{ store | json }}
+<section *ngIf="store" class="card">
+  <div class="card-header">
+    <h1 class="text-white text-center font-weight-light mt-4">
+      {{ store.name }}
+    </h1>
+  </div>
+  <div class="card-body">
+    <div class="row justify-content-between">
+      <div class="col-md-9">
+        <img
+          alt="Header image"
+          class="img-fluid"
+          [src]="store.image_background"
+        />
+        <blockquote
+          [innerHTML]="store.description"
+          class="blockquote blockquote-info"
+        ></blockquote>
+      </div>
+      <div class="col-md-3">
+        <div>
+          <h4 class="text-muted">Lista de juegos:</h4>
+          <ul>
+            <li
+              *ngFor="let game of store.games"
+              class="list-item mb-2"
+              (click)="getGameDetails(game.id)"
+            >
+              {{ game.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
