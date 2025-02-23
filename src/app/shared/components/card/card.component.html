@@ -3,18 +3,20 @@
     <img
       alt="Raised circle image"
       class="img-center img-fluid rounded-circle shadow-lg"
-      [src]="store.image_background"
+      [src]="store.image_background | notimage"
     />
-    <h4 class="title">{{ store.name }}</h4>
+    <h4 class="title">{{ store.name | notempty }}</h4>
     <a
-      [href]="getUrl(store.domain)"
+      [href]="store.domain | noturl"
       target="_blank"
       rel="external"
       (click)="$event.stopPropagation()"
-      >{{ store.domain }}</a
+      >{{ store.domain | notempty }}</a
     >
   </div>
   <div class="card-body">
-    <p class="text-muted">Número total de juegos: {{ store.games_count }}</p>
+    <p class="text-muted">
+      Número total de juegos: {{ store.games_count.toString() | notempty }}
+    </p>
   </div>
 </div>

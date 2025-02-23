@@ -8,13 +8,13 @@
     >
       <i class="tim-icons icon-simple-remove"> </i>
     </button>
-    <h4 class="title title-up">{{ title }}</h4>
+    <h4 class="title title-up">{{ title | notempty }}</h4>
   </div>
   <div class="modal-body">
     <app-carousel [slides]="images"></app-carousel>
     <blockquote class="blockquote">
       <p class="lead text-muted">
-        {{ description }}
+        {{ description | notempty }}
       </p>
       <footer class="blockquote-footer text-right">
         Fecha de lanzamiento:
@@ -24,8 +24,8 @@
     <section class="ratings">
       <ng-container *ngFor="let rating of ratings">
         <app-progress-bar
-          [title]="rating.title | titlecase"
-          [percent]="rating.percent"
+          [title]="rating.title | titlecase | notempty"
+          [percent]="rating.percent || 0"
           [colorClass]="setRatingColor(rating.title)"
         ></app-progress-bar>
       </ng-container>

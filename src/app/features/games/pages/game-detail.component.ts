@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Rating } from 'src/app/core/models/game.model';
-import { CustomValidators } from 'src/app/core/utils/validations';
+import { CustomUtils } from 'src/app/core/utils/utils';
 
 @Component({
   selector: 'app-game-detail',
@@ -20,6 +20,6 @@ export class GameDetailComponent implements OnInit {
   ngOnInit(): void {}
 
   setRatingColor(value: string): string {
-    return CustomValidators.getRatingColor(value);
+    return CustomUtils.getRatingColor(value);
   }
 }
