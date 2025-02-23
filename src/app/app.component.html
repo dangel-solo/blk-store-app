@@ -7,4 +7,8 @@
   {{ alert.msg }}
 </alert>
 
+<div *ngIf="loadingService.loading$ | async" class="loading-overlay">
+  <div class="loader"></div>
+</div>
+
 <router-outlet></router-outlet>
