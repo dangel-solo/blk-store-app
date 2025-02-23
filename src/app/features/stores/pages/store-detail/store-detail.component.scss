@@ -1,16 +1,74 @@
-.card {
-  text-align: left;
-}
+.detail-container{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 0;
 
-.list-item {
-  cursor: pointer;
-  transition: color 0.3s, transform 0.1s;
-
-  &:hover {
-    color: var(--primary);
+  h1 {
+    margin: 0;
   }
 
-  &:active {
-    transform: scale(0.98);
+  section {
+    height: auto;
+
+    .detail-content {
+      height: 600px;
+      display: grid;
+      grid-template-columns: 60% 30%;
+      gap: 5em;
+    }
+
+    .img-description {
+      height: 580px;
+      display: grid;
+      grid-template-rows: 50% 50%;
+
+      img {
+        width: 100%;
+        height: -webkit-fill-available;
+      }
+      blockquote {
+        max-height: 100%;
+        overflow: auto;
+      }
+    }
+
+    .list-games {
+      height: 580px;
+      display: grid;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .list-item {
+      cursor: pointer;
+      transition: color 0.3s, transform 0.1s;
+
+      &:hover {
+        color: var(--primary);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  blockquote {
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--light);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--lighter);
+    }
   }
 }
