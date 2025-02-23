@@ -3,7 +3,7 @@ import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
 import { GetStoresRs, Store } from '../models/store.model';
 import { map, switchMap, tap } from 'rxjs/operators';
-import { GetGameRs } from '../models/game.model';
+import { GameData, GetGameRs } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root',
@@ -22,8 +22,28 @@ export class StoreService {
     return this.http.get<Store>(`stores/${id}`).pipe(tap(console.log));
   }
 
-  getGames(id: number): Observable<GetGameRs> {
-    return this.http.get<GetGameRs>(`games/${id}`).pipe(tap(console.log));
+  getGames(id: number): Observable<GameData> {
+    return this.http.get<GetGameRs>(`games/${id}`).pipe(
+      map(
+        ({
+          name,
+          description_raw,
+          released,
+          ratings,
+          background_image,
+          background_image_additional,
+        }) => ({
+          title: name,
+          description: description_raw,
+          released,
+          ratings,
+          images: [background_image, background_image_additional].filter(
+            (value) => value
+          ),
+        })
+      ),
+      tap(console.log)
+    );
   }
 
   getStoreDetailsComplete(id: number): Observable<Store> {

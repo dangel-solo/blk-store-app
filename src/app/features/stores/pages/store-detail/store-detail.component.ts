@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { GetGameRs } from 'src/app/core/models/game.model';
+import { GameData } from 'src/app/core/models/game.model';
 import { Store } from 'src/app/core/models/store.model';
 import { CustomModalService } from 'src/app/core/services/custom-modal.service';
 import { StoreService } from 'src/app/core/services/store.service';
@@ -15,7 +15,7 @@ import { GameDetailComponent } from 'src/app/features/games/pages/game-detail.co
 export class StoreDetailComponent implements OnInit {
   modalRef?: BsModalRef;
   store!: Store;
-  game!: GetGameRs;
+  gameData!: GameData;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,22 +37,16 @@ export class StoreDetailComponent implements OnInit {
   }
 
   getGameDetails(id: number) {
-    this.storeService.getGames(id).subscribe((game: GetGameRs) => {
-      this.game = game;
+    this.storeService.getGames(id).subscribe((game: GameData) => {
+      this.gameData = game;
       this.openModal();
     });
   }
 
   openModal() {
-    const initialState = {
-      title: this.game.name,
-      description: this.game.description_raw,
-      released: this.game.released,
-      ratings: this.game.ratings,
-    };
     this.customModalService.openModalWithComponent(
       GameDetailComponent,
-      initialState,
+      this.gameData,
       'modal-lg custom-modal'
     );
   }

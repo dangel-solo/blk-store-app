@@ -13,6 +13,7 @@ export class GameDetailComponent implements OnInit {
   description!: string;
   released!: Date;
   ratings!: Rating[];
+  images!: string[];
 
   constructor(public bsModalRef: BsModalRef) {}
 

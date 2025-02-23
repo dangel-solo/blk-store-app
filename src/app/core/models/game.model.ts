@@ -131,3 +131,11 @@ export interface Store {
   url: string;
   store: Developer;
 }
+
+export interface GameData {
+  title: string;
+  description: string;
+  released: Date;
+  ratings: Rating[];
+  images: string[];
+}

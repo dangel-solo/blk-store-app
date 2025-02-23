@@ -11,29 +11,7 @@
     <h4 class="title title-up">{{ title }}</h4>
   </div>
   <div class="modal-body">
-    <carousel [showIndicators]="false">
-      <slide>
-        <img
-          alt="First slide"
-          class="d-block w-100"
-          src="assets/img/denys.jpg"
-        />
-      </slide>
-      <slide>
-        <img
-          alt="Second slide"
-          class="d-block w-100"
-          src="assets/img/fabien-bazanegue.jpg"
-        />
-      </slide>
-      <slide>
-        <img
-          alt="Third slide"
-          class="d-block w-100"
-          src="assets/img/mark-finn.jpg"
-        />
-      </slide>
-    </carousel>
+    <app-carousel [slides]="images"></app-carousel>
     <blockquote class="blockquote">
       <p class="lead text-muted">
         {{ description }}
