@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { StoreModule } from './features/stores/store.module';
+import { AlertModule } from 'ngx-bootstrap/alert';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeadersInterceptor } from './core/interceptors/headers.interceptor';
 import { ParamsInterceptor } from './core/interceptors/params.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +19,7 @@ import { ParamsInterceptor } from './core/interceptors/params.interceptor';
     HttpClientModule,
     LayoutModule,
     StoreModule,
+    AlertModule.forRoot(),
   ],
   providers: [
     {
@@ -27,6 +30,11 @@ import { ParamsInterceptor } from './core/interceptors/params.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ParamsInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true,
     },
   ],

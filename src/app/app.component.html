@@ -1,1 +1,10 @@
+<alert
+  *ngFor="let alert of notificationService.getAlerts(); let i = index"
+  [type]="alert.type"
+  [dismissible]="true"
+  (onClosed)="notificationService.clearNotification(alert)"
+>
+  {{ alert.msg }}
+</alert>
+
 <router-outlet></router-outlet>

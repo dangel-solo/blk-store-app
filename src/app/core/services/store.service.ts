@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { GetStoresRs, Store } from '../models/store.model';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { GameData, GetGameRs } from '../models/game.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoreService {
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, private router: Router) {}
 
   getStores(): Observable<Store[]> {
     return this.http.get<GetStoresRs>('stores').pipe(
@@ -51,6 +52,7 @@ export class StoreService {
       switchMap((stores: Store[]) => {
         const store = stores.find((s) => s.id === id);
         if (!store) {
+          this.router.navigate(['/stores']);
           throw new Error('Store not found');
         }
         return this.getStoreDetails(id).pipe(
