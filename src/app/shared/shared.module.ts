@@ -6,9 +6,19 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { NotEmptyPipe } from '../core/utils/pipes/not-empty.pipe';
+import { NotImagePipe } from '../core/utils/pipes/not-image.pipe';
+import { NotUrlPipe } from '../core/utils/pipes/not-url.pipe';
 
 @NgModule({
-  declarations: [CardComponent, ProgressBarComponent, CarouselComponent],
+  declarations: [
+    CardComponent,
+    ProgressBarComponent,
+    CarouselComponent,
+    NotEmptyPipe,
+    NotImagePipe,
+    NotUrlPipe,
+  ],
   imports: [
     CommonModule,
     ModalModule.forRoot(),
@@ -22,6 +32,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     ProgressBarComponent,
     CarouselModule,
     CarouselComponent,
+    NotEmptyPipe,
+    NotImagePipe,
+    NotUrlPipe,
   ],
   providers: [BsModalService],
 })

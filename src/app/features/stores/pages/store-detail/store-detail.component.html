@@ -2,15 +2,19 @@
   <section class="card">
     <div class="card-header">
       <h1 class="text-white text-center font-weight-light">
-        {{ store.name }}
+        {{ store.name | notempty }}
       </h1>
     </div>
     <div class="card-body">
       <div class="detail-content">
         <div class="img-description">
-          <img alt="Header image" class="" [src]="store.image_background" />
+          <img
+            alt="Header image"
+            class=""
+            [src]="store.image_background | notimage"
+          />
           <blockquote
-            [innerHTML]="store.description"
+            [innerHTML]="store.description | notempty"
             class="blockquote blockquote-info"
           ></blockquote>
         </div>
@@ -23,21 +27,23 @@
                 class="list-item mb-2"
                 (click)="getGameDetails(game.id)"
               >
-                {{ game.name }}
+                {{ game.name | notempty }}
               </li>
             </ul>
           </div>
           <blockquote class="blockquote text-center">
             <a
-              [href]="getUrl(store.domain)"
+              [href]="store.domain | noturl"
               target="_blank"
               rel="external"
               (click)="$event.stopPropagation()"
-              >{{ store.domain }}</a
+              >{{ store.domain | notempty }}</a
             >
             <footer class="blockquote-footer">
               Número de juegos:
-              <cite title="Source Title">{{ store.games_count }}</cite>
+              <cite title="Source Title">{{
+                store.games_count.toString() | notempty
+              }}</cite>
             </footer>
           </blockquote>
         </div>

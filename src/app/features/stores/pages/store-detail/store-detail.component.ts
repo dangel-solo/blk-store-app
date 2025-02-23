@@ -5,7 +5,6 @@ import { GameData } from 'src/app/core/models/game.model';
 import { Store } from 'src/app/core/models/store.model';
 import { CustomModalService } from 'src/app/core/services/custom-modal.service';
 import { StoreService } from 'src/app/core/services/store.service';
-import { CustomValidators } from 'src/app/core/utils/validations';
 import { GameDetailComponent } from 'src/app/features/games/pages/game-detail.component';
 
 @Component({
@@ -50,9 +49,5 @@ export class StoreDetailComponent implements OnInit {
       this.gameData,
       'modal-lg custom-modal'
     );
-  }
-
-  getUrl(url: string): string {
-    return CustomValidators.validUrl(url);
   }
 }
