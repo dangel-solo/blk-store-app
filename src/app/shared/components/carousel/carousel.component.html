@@ -1,0 +1,7 @@
+<carousel [showIndicators]="false">
+  <ng-container *ngFor="let slide of slides; let i = index">
+    <slide>
+      <img [alt]="'Slide ' + (i + 1)" class="d-block w-100" [src]="slide" />
+    </slide>
+  </ng-container>
+</carousel>
