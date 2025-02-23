@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { NotificationService } from './core/services/notifications.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,11 @@ import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    public notificationService: NotificationService
+  ) {}
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
