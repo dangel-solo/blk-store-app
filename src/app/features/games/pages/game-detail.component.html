@@ -16,11 +16,11 @@
       <p class="lead text-muted">
         {{ description }}
       </p>
+      <footer class="blockquote-footer text-right">
+        Fecha de lanzamiento:
+        <cite title="Source Title">{{ released | date : "dd/MM/yyyy" }}</cite>
+      </footer>
     </blockquote>
-    <p class="text-muted text-center">
-      Fecha de lanzamiento:
-      <strong>{{ released | date : "dd/MM/yyyy" }}</strong>
-    </p>
     <section class="ratings">
       <ng-container *ngFor="let rating of ratings">
         <app-progress-bar

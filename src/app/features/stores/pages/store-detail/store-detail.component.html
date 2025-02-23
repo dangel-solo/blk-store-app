@@ -1,36 +1,47 @@
-<section *ngIf="store" class="card">
-  <div class="card-header">
-    <h1 class="text-white text-center font-weight-light mt-4">
-      {{ store.name }}
-    </h1>
-  </div>
-  <div class="card-body">
-    <div class="row justify-content-between">
-      <div class="col-md-9">
-        <img
-          alt="Header image"
-          class="img-fluid"
-          [src]="store.image_background"
-        />
-        <blockquote
-          [innerHTML]="store.description"
-          class="blockquote blockquote-info"
-        ></blockquote>
-      </div>
-      <div class="col-md-3">
-        <div>
-          <h4 class="text-muted">Lista de juegos:</h4>
-          <ul>
-            <li
-              *ngFor="let game of store.games"
-              class="list-item mb-2"
-              (click)="getGameDetails(game.id)"
+<div *ngIf="store" class="detail-container container">
+  <section class="card">
+    <div class="card-header">
+      <h1 class="text-white text-center font-weight-light">
+        {{ store.name }}
+      </h1>
+    </div>
+    <div class="card-body">
+      <div class="detail-content">
+        <div class="img-description">
+          <img alt="Header image" class="" [src]="store.image_background" />
+          <blockquote
+            [innerHTML]="store.description"
+            class="blockquote blockquote-info"
+          ></blockquote>
+        </div>
+        <div class="list-games">
+          <div>
+            <h4 class="text-muted">Lista de juegos:</h4>
+            <ul>
+              <li
+                *ngFor="let game of store.games"
+                class="list-item mb-2"
+                (click)="getGameDetails(game.id)"
+              >
+                {{ game.name }}
+              </li>
+            </ul>
+          </div>
+          <blockquote class="blockquote text-center">
+            <a
+              [href]="getUrl(store.domain)"
+              target="_blank"
+              rel="external"
+              (click)="$event.stopPropagation()"
+              >{{ store.domain }}</a
             >
-              {{ game.name }}
-            </li>
-          </ul>
+            <footer class="blockquote-footer">
+              Número de juegos:
+              <cite title="Source Title">{{ store.games_count }}</cite>
+            </footer>
+          </blockquote>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
