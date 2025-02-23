@@ -1,0 +1,28 @@
+:host ::ng-deep {
+  carousel img {
+    max-height: 28em !important;
+  }
+
+  blockquote {
+    border: 1px solid var(--lighter) !important;
+
+    p {
+      max-height: 20em !important;
+      overflow: auto !important;
+      max-height: 400px;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--lighter);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--white);
+      }
+    }
+  }
+}

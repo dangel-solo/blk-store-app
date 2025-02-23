@@ -1,10 +1,11 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { GetGameRs } from 'src/app/core/models/game.model';
 import { Store } from 'src/app/core/models/store.model';
+import { CustomModalService } from 'src/app/core/services/custom-modal.service';
 import { StoreService } from 'src/app/core/services/store.service';
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { GameDetailComponent } from 'src/app/features/games/pages/game-detail.component';
 
 @Component({
   selector: 'app-store-detail',
@@ -12,11 +13,6 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
   styleUrls: ['./store-detail.component.scss'],
 })
 export class StoreDetailComponent implements OnInit {
-  modalDataMock = {
-    title: 'TITLE MOCK',
-    name: 'NAME MOCK',
-  };
-  @ViewChild('myModal') modalTemplate!: TemplateRef<any>;
   modalRef?: BsModalRef;
   store!: Store;
   game!: GetGameRs;
@@ -24,7 +20,7 @@ export class StoreDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private storeService: StoreService,
-    private modalService: BsModalService
+    private customModalService: CustomModalService
   ) {}
 
   ngOnInit(): void {
@@ -43,20 +39,21 @@ export class StoreDetailComponent implements OnInit {
   getGameDetails(id: number) {
     this.storeService.getGames(id).subscribe((game: GetGameRs) => {
       this.game = game;
-      this.openConfirmDialog();
+      this.openModal();
     });
   }
 
-  openConfirmDialog() {
+  openModal() {
     const initialState = {
       title: this.game.name,
       description: this.game.description_raw,
       released: this.game.released,
       ratings: this.game.ratings,
     };
-    this.modalRef = this.modalService.show(ModalComponent, {
-      class: 'modal-lg',
+    this.customModalService.openModalWithComponent(
+      GameDetailComponent,
       initialState,
-    });
+      'modal-lg custom-modal'
+    );
   }
 }

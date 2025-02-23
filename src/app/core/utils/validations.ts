@@ -1,3 +1,5 @@
+import { RATINGS_COLORS } from '../constants/rating-colors';
+
 export class CustomValidators {
   static validUrl(domain: string): string {
     return domain
@@ -5,5 +7,9 @@ export class CustomValidators {
         ? domain
         : 'https://' + domain
       : '/';
+  }
+
+  static getRatingColor(value: string): string {
+    return RATINGS_COLORS[value];
   }
 }
