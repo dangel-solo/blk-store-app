@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { NotificationService } from './core/services/notifications.service';
+import { LoadingService } from './core/services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ export class AppComponent {
   constructor(
     private renderer: Renderer2,
     private el: ElementRef,
-    public notificationService: NotificationService
+    public notificationService: NotificationService,
+    public loadingService: LoadingService
   ) {}
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
