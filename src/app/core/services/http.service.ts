@@ -49,7 +49,7 @@ export class HttpService {
           catchError(this.handleError)
         );
       default:
-        return throwError(() => new Error('Método HTTP no soportado'));
+        return throwError(() => new Error('HTTP method not supported'));
     }
   }
 
@@ -74,7 +74,7 @@ export class HttpService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Error desconocido';
+    let errorMessage = 'Error: Unknown error';
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Error: ${error.error.message}`;
     } else {

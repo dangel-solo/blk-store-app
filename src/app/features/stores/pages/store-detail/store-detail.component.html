@@ -9,7 +9,7 @@
       <div class="detail-content">
         <div class="img-description">
           <img
-            alt="Header image"
+            alt="Store image"
             class=""
             [src]="store.image_background | notimage"
           />
@@ -20,7 +20,7 @@
         </div>
         <div class="list-games">
           <div>
-            <h4 class="text-muted">Lista de juegos:</h4>
+            <h4 class="text-muted">{{ LABELS.gameList }}:</h4>
             <ul>
               <li
                 *ngFor="let game of store.games"
@@ -40,7 +40,7 @@
               >{{ store.domain | notempty }}</a
             >
             <footer class="blockquote-footer">
-              Número de juegos:
+              {{ LABELS.totalGames }}:
               <cite title="Source Title">{{
                 store.games_count.toString() | notempty
               }}</cite>
