@@ -72,3 +72,16 @@
     }
   }
 }
+
+@media (max-height: 890px) {
+  .detail-content {
+    height: 460px !important;
+    .img-description {
+      height: 440px !important;
+    }
+
+    .list-games {
+      height: 440px !important;
+    }
+  }
+}

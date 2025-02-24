@@ -24,7 +24,9 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (!error.status) {
           errorMessage = 'No se pudo conectar con el servidor';
         }
-        errorMessage = `Error ${error.status}: ${error.error.message}`;
+        errorMessage = `Error ${error.status}: ${
+          error.error.message ? error.error.message : error.error.error
+        }`;
         this.notificationService.error(errorMessage);
 
         return throwError(() => error);

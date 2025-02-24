@@ -1,5 +1,5 @@
 <alert
-  *ngFor="let alert of notificationService.getAlerts(); let i = index"
+  *ngFor="let alert of notificationService.getAlerts()"
   [type]="alert.type"
   [dismissible]="true"
   (onClosed)="notificationService.clearNotification(alert)"

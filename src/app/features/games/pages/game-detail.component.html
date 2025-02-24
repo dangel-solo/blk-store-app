@@ -17,7 +17,7 @@
         {{ description | notempty }}
       </p>
       <footer class="blockquote-footer text-right">
-        Fecha de lanzamiento:
+        {{ LABELS.releaseDate }}:
         <cite title="Source Title">{{ released | date : "dd/MM/yyyy" }}</cite>
       </footer>
     </blockquote>

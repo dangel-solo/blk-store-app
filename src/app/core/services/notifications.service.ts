@@ -19,6 +19,7 @@ export class NotificationService {
       timeout: this.duration,
     };
     this.notifications = [...this.notifications, notification];
+    // Timer para ocultar la notificación. La propiedad timeout parece no estar funcionando.
     timer(this.duration).subscribe(() => this.clearNotification(notification));
   }
 

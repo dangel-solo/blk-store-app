@@ -13,6 +13,10 @@ export class StoreListComponent implements OnInit {
   constructor(public storeService: StoreService, private router: Router) {}
 
   ngOnInit(): void {
+    this.getStoreList();
+  }
+
+  getStoreList() {
     this.storeService
       .getStores()
       .subscribe((response: Store[]) => (this.storeList = response));

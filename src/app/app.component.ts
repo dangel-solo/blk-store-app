@@ -14,6 +14,7 @@ export class AppComponent {
     public notificationService: NotificationService,
     public loadingService: LoadingService
   ) {}
+  // Efecto de color en navbar al hacer scroll
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;

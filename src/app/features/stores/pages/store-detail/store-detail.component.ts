@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { LABELS } from 'src/app/core/constants/labels';
 import { GameData } from 'src/app/core/models/game.model';
 import { Store } from 'src/app/core/models/store.model';
 import { CustomModalService } from 'src/app/core/services/custom-modal.service';
@@ -16,6 +17,7 @@ export class StoreDetailComponent implements OnInit {
   modalRef?: BsModalRef;
   store!: Store;
   gameData!: GameData;
+  LABELS = LABELS;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,11 +28,11 @@ export class StoreDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const storeId = Number(params.get('id'));
-      this.getStoreDettails(storeId);
+      this.getStoreDetails(storeId);
     });
   }
 
-  getStoreDettails(id: number) {
+  getStoreDetails(id: number) {
     this.storeService
       .getStoreDetailsComplete(id)
       .subscribe((store: Store) => (this.store = store));
