@@ -1,6 +1,6 @@
 # BlkStores
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.19 and Node.js version 12.11.0
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.19 and [Node.js](https://nodejs.org/es) version 12.11.0
 
 ### This project is made with the following template:
 
@@ -10,3 +10,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 > [!TIP]
 > Documentation: [Doc](https://demos.creative-tim.com/blk-design-system-angular/#/documentation/overview)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dangel-solo/blk-store-app
+   ```
+2. Navigate to the project directory::
+   ```bash
+   cd blk-stores
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run start
+   ```
+5. Open your browser and go to http://localhost:4200.
